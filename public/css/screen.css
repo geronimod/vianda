@@ -1,0 +1,124 @@
+main { margin-top: 100px }
+
+.table tbody > tr > td {
+  border-top: none;
+  padding: 0;
+}
+
+
+.header {
+  float: left;
+  padding: 15px 15px;
+  font-size: 1.7em;
+  line-height: 20px;
+}
+
+.navbar {
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.15);
+  background-color: #C43F3F; /*#5E7B89; /*#42494F*/
+  box-shadow: 0 1px 0 rgba(255,255,255,.1);
+}
+
+.navbar-inverse {
+  border-bottom: 1px solid #999;
+  box-shadow: 0 1px 0 rgba(255,255,255,.1);
+}
+
+.navbar-brand { 
+  color: #555;
+}
+
+.navbar .time {
+  font-size: 1.2em;
+}
+
+.navbar .time .icon-time { 
+  display: inline-block;
+  float: left;
+  font-size: 2em;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.rotated {
+  -webkit-transform: rotate(316deg);
+  -moz-transform: rotate(316deg);
+  -o-transform: rotate(316deg);
+  writing-mode: lr-bt ;
+}
+
+.righted { text-align: right }
+.no-mt { margin-top: 0 }
+.no-mr { margin-right: 0 }
+.no-pr { padding-right: 0 }
+.control-label { font-weight: normal }
+
+.board, .modal-body, .modal-body h4 { 
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.modal-body, .modal-body h4 {
+  font-size: 1.2em;
+}
+
+.panel {
+  border-radius: 0;
+  border-top: none;
+  /*border-right-color: rgb(203, 204, 186);*/
+  /*border-left-color:  rgb(203, 204, 186);*/
+  -webkit-box-shadow: 0 2px 3px 0 #AAAB9D;
+          box-shadow: 0 2px 3px 0 #AAAB9D;
+}
+
+.panel-default {
+  border: none;
+}
+
+.panel a {
+  text-decoration: none;
+  color: #5E7B89;
+}
+
+.panel a:hover {
+  text-decoration: none;
+  color: rgb(9, 110, 158);
+}
+
+.panel-heading {
+  font-family: 'Bad Script', cursive;
+  background-color: #F5F5F5;
+  border-radius: 0;
+  font-size: 1.5em;
+}
+
+.contact {
+  font-size: .9em;
+}
+
+.close.delete, .close.edit {
+  font-size: .7em;
+}
+
+.panel-body {
+  background-color: #F5F5F5;
+  border-radius: 0;
+  /*font-size: 1.2em;*/
+}
+
+.panel-footer {
+  background-color: #F5F5F5;
+}
+
+.price { font-size: 1.2em }
+
+.lunch {
+  /*font-family: 'Oxygen', sans-serif;*/
+  /*font-family: 'Roboto', sans-serif;*/
+  color: rgb(63, 63, 63);
+  font-size: 1.1em;
+}
+
+ul.list-unstyled {
+  color: rgb(128, 123, 123);
+}

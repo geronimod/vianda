@@ -1,0 +1,88 @@
+.panel.panel-default.new-ls
+  .panel-heading
+    .row
+      .col-md-11
+        .row
+          .col-md-12.form-group
+            .input-group-sm
+              :plain
+                <input class="form-control" type="text" placeholder="Chef Name" name="chef.name" value="<%= chef.name %>" />
+              
+        .row
+          .col-md-12.form-group
+            .input-group-sm
+              :plain
+                <input class="form-control" type="email" placeholder="Chef Email" name="chef.email" value="<%= chef.email %>" />
+          
+        .row
+          .col-md-12.form-group
+            .input-group-sm
+              :plain
+                <input class="form-control" type="text" placeholder="Chef Facebook" name="chef.facebook" value="<%= chef.facebook %>" />
+              
+      .col-md-1.form-group
+        %button(type="button" class="close cancel" aria-hidden="true" tabindex="-1") &times;
+
+  .panel-body
+    :plain
+      <% _.each(menus, function(menu, index){ %>
+    = haml :menu
+    :plain
+      <% }); %>
+    .row
+      .col-md-12
+        %a#add-menu.btn.btn-xs.pull-right
+          %i.icon.icon-plus
+
+    .row
+      .col-md-5
+        .checkbox.no-mt
+          %label.control-label
+          :plain
+            <input type="hidden" name="lunch_suggestion.bread_included" value="false"/>
+            <input type="checkbox" name="lunch_suggestion.bread_included"/>
+            Bread included
+
+        .checkbox
+          %label.control-label
+          :plain
+            <input type="hidden" name="lunch_suggestion.free_shipping" value="false"/>
+            <input type="checkbox" name="lunch_suggestion.free_shipping"/>
+            Free shipping
+            
+      .col-md-7
+        .row
+          .col-md-6.no-pr.righted
+            %label.control-label Orders before:
+          .col-md-6
+            .input-group
+              :plain
+                <input class="form-control" type="text" placeholder="11" name="lunch_suggestion.orders_before" value="<%= orders_before %>"/>
+              %span.input-sm.input-group-addon am
+
+  .panel-footer
+    .row
+      .col-md-12
+        %label.control-label Suggested by
+ 
+    .row
+      .col-md-12.form-group
+        .input-group-sm
+          :plain
+            <input class="form-control" type="text" placeholder="User Name" name="user.fullname" value="<%= chef.user.fullname %>"/>
+
+    .row
+      .col-md-12.form-group
+        .input-group-sm
+          :plain
+            <input class="form-control" type="email" placeholder="User@Email" name="user.email" value="<%= chef.user.email %>"/>
+
+    .row
+      .col-md-12.form-group
+        %button(type="submit" class="btn btn-primary btn-sm btn-block")
+          <% if (isNew) { %>
+          SUGGEST
+          <% } else { %>
+          UPDATE
+          <% } %>
+          

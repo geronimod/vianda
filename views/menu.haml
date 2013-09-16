@@ -1,0 +1,13 @@
+.row.menu
+  .col-md-8.form-group
+    :plain
+      <textarea class="form-control" placeholder="Menu" name="menus[<%= index %>].menu">
+        <%= menu.menu %>
+      </textarea>
+
+  .col-md-4.form-group
+    .input-group
+      :plain
+        <input class="form-control" type="text" placeholder="00.0" name="menus[<%= index %>].price" value="<%= menu.price %>"/>
+      %span.input-sm.input-group-addon $
+    

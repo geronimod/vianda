@@ -1,0 +1,61 @@
+.panel.panel-default
+  .panel-heading
+    .row
+      .col-md-7
+        <%= chef.name %>
+
+      .col-md-3.contact
+        <a href="mailto:<%= chef.email %>"> @ </a>
+        <a href="https://www.facebook.com/<%= chef.facebook %>" target="_blank">
+        %i.icon-facebook-sign
+        </a>
+
+      .col-md-2
+        <% if (isOwner) { %>
+        %button(type="button" class="delete close" data-toggle="modal" aria-hidden="true")
+          %icon.icon-trash
+        %button(type="button" class="edit close" aria-hidden="true")
+          %icon.icon-edit
+        <% } else { %>
+        %button(type="button" class="close" aria-hidden="true")
+          %icon.icon-paperclip
+        <% } %>
+
+  .panel-body 
+    %table.table
+      <% _.each(menus, function(menu){ %>
+      %tr
+        %td.lunch
+          <%= menu.menu %> ... 
+          %i.icon-usd 
+          %span.price <%= menu.price %>
+      <% }); %>
+
+    %ul.list-unstyled
+      %li 
+        <% if (bread_included) { %>
+        %i.icon-gift
+        Bread included
+        <% } else { %>
+        %i.icon-thumbs-down
+        Bread not included
+        <% } %>
+      
+      %li
+        %i.icon-time 
+        Order before  
+        %strong <%= orders_before %>
+        am
+      
+      %li
+        <% if (free_shipping) { %>
+        %i.icon-truck
+        Free shipping
+        <% } else { %>
+        %i.icon-thumbs-down-alt
+        Shipping not included        
+        <% } %>
+
+  .panel-footer 
+    Suggested by
+    <a  href="mailto:<%= chef.user.email %>"><%= chef.user.fullname %></a>
