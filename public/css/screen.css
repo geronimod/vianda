@@ -1,23 +1,79 @@
-main { margin-top: 100px }
+/*main { margin-top: 100px }*/
+#subheader { 
+  margin-top: 100px;
+}
+
+.progress-bar {
+  /*background-color: #DAD4D4;*/
+}
 
 .table tbody > tr > td {
   border-top: none;
   padding: 0;
 }
 
+header {
+  background-image: url("/images/blackboard.jpg");
+  background-repeat:no-repeat;
+  background-size: cover;
+  background-position: center center;
+  font-family: 'Shadows Into Light Two', cursive;
+}
 
 .header {
   float: left;
-  padding: 15px 15px;
+  padding: 15px 15px 5px 15px;
   font-size: 1.7em;
   line-height: 20px;
+  color: #fff;
+  text-shadow: #fff 0 0 1em;
+}
+
+.navbar-header p {
+  font-size: 1.3em;
+  margin-left: 40px;
+  color: transparent;
+  text-shadow: #fff 0 0 0.1em;
+  letter-spacing: 2px;
 }
 
 .navbar {
+  text-align: center;
+  min-height: 80px;
   color: white;
-  text-shadow: 0 -1px 0 rgba(0,0,0,.15);
-  background-color: #C43F3F; /*#5E7B89; /*#42494F*/
-  box-shadow: 0 1px 0 rgba(255,255,255,.1);
+  /*text-shadow: 0 -1px 0 rgba(0,0,0,.15);*/
+  /*background-color: #C43F3F; /*#5E7B89; /*#42494F*/
+  /*box-shadow: 0 1px 0 rgba(255,255,255,.1);*/
+}
+
+.btn-primary,
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active {
+  background-color: #C55A5A;
+  border-color: #C55A5A;
+}
+
+.label-success {
+  background-color: #5E7B89;
+  letter-spacing: 1px;
+}
+
+.btn-primary:hover {
+  background-color: #C43F3F; /*#BB1F1F;*/
+  border-color: #C43F3F;
 }
 
 .navbar-inverse {
@@ -25,28 +81,31 @@ main { margin-top: 100px }
   box-shadow: 0 1px 0 rgba(255,255,255,.1);
 }
 
-.navbar-brand { 
-  color: #555;
+.navbar-inverse .navbar-brand { 
+  color: #C7C7CC;
 }
 
 .navbar .time {
   font-size: 1.2em;
+  margin-top: 30px;
 }
+
+#timer {
+  font-family: 'Lato';
+  font-size: .6em;
+}
+
+.row #add-menu { margin-bottom: 5px }
 
 .navbar .time .icon-time { 
   display: inline-block;
   float: left;
-  font-size: 2em;
+  font-size: 1.5em;
   margin-top: 5px;
   margin-right: 10px;
 }
 
-.rotated {
-  -webkit-transform: rotate(316deg);
-  -moz-transform: rotate(316deg);
-  -o-transform: rotate(316deg);
-  writing-mode: lr-bt ;
-}
+.form-group { margin-bottom: 5px }
 
 .righted { text-align: right }
 .no-mt { margin-top: 0 }
@@ -121,4 +180,18 @@ main { margin-top: 100px }
 
 ul.list-unstyled {
   color: rgb(128, 123, 123);
+}
+
+*:focus {outline: none;}
+
+input:required:focus:valid, textarea:required:focus:valid {
+  background: none;
+  box-shadow: 0 0 5px rgb(118, 255, 118);
+  border-color: rgb(133, 172, 133);
+}
+
+input:required:focus:invalid, textarea:required:focus:invalid {
+  background: none;
+  box-shadow: 0 0 5px rgb(245, 130, 130);
+  border-color: rgb(206, 151, 151);
 }

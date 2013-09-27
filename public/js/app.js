@@ -9,13 +9,6 @@ $(function(){
       bread_included: true,
       free_shipping: true
     },
-
-    // validate: function(attrs, options) {
-    //   debugger
-    //   if (attrs.end < attrs.start) {
-    //     return "can't end before it starts";
-    //   }
-    // }
   });
 
   var LunchSuggestionList = Backbone.Collection.extend({
@@ -43,8 +36,17 @@ $(function(){
     },
 
     initialize: function() {
-      if (this.model.id)
+      this.initNewOrExistent();
+    },
+
+    initNewOrExistent: function() {
+      this.$el.removeClass('new-ls');
+      
+      if (this.model.id) {
         this.$el.attr('id', 'ls-' + this.model.id);
+      } else {
+        this.$el.addClass('new-ls');
+      }
     },
 
     onAddMenu: function() {
@@ -74,17 +76,39 @@ $(function(){
 
     onSubmit: function(e) {
       e.preventDefault();
+      this.$('button[type=submit]').button('loading');
       var attrs = form2js(e.target);
 
       this.model.on('error', this.onError, this);
+      this.model.on('invalid', this.onInvalid, this);
       this.model.on('sync',  this.onSync, this);
       this.model.save(attrs);
     },
 
+    onValid: function(a,b,c) {
+      alert('valid');
+    },
+
+    onInvalid: function(model, errors) {
+      this.$('button[type=submit]').button('reset');
+      debugger
+      var self = this;
+      _.each(errors, function(errorMessage, domName){
+        // debugger
+        self.$('[name="' + domName + '"]').css(errorMessage);
+
+      });
+      return false;
+    },
+
     onSync: function() {
+      this.$('button[type=submit]').button('reset');
+      
       var lsIds = $.cookie('lsIds');
       lsIds = lsIds ? JSON.parse(lsIds).concat(this.model.id) : [this.model.id];
       $.cookie('lsIds', JSON.stringify(lsIds));
+      
+      this.initNewOrExistent();
       this.render();
     },
 
@@ -94,8 +118,9 @@ $(function(){
     },
 
     onError: function(model, response) {
+      this.$('button[type=submit]').button('reset');
       console.log(response);
-      alert("error: " + response);
+      return false;
     },
 
     template: function(onEdit) {
@@ -112,6 +137,9 @@ $(function(){
     initModal: function() {
       var modalId = 'modal-' + this.model.id,
           modalSelector = '#' + modalId;
+      
+      if (this.model.isNew() || this.$(modalSelector).length > 0) return;
+      
       this.$('.delete').attr('data-target', modalSelector);
 
       var alert = this.tmplAlert({ 
@@ -129,7 +157,7 @@ $(function(){
       opts || (opts = {});
       
       this.$el.slideUp('slow', _.bind(function(){
-        this.$el.html(this.template(opts.onEdit)).slideDown('slow');  
+        this.$el.html(this.template(opts.onEdit)).slideDown('slow');
         this.handleCheckboxes();
         this.initModal();
       }, this));
@@ -138,48 +166,50 @@ $(function(){
     }
   });
 
-  var App = Backbone.View.extend({
-    el: $("#main-container"),
+  var Subheader = Backbone.View.extend({
+    el: $("#subheader"),
 
     events: {
       'click .new-suggestion': 'onNew'
     },
 
+    onNew: function() {
+      if ($('.new-ls').length == 0) {
+        var view  = new LunchSuggestionView({ model: new LunchSuggestion });
+        $('#main-container').prepend(view.render().$el.hide());
+        view.$el.show('slow');
+      }
+    },
+
+  });
+
+  var App = Backbone.View.extend({
+    el: $("#main-container"),
+
     initialize: function() {
+      new Subheader();
       this.setTimer();
 
-      this.listenTo(lunchSuggestions, 'add',   this.addOne);
-      this.listenTo(lunchSuggestions, 'reset', this.addAll);
-      this.listenTo(lunchSuggestions, 'all',   this.render);
+      this.listenTo(lunchSuggestions, 'add', this.addOne);
 
+      var self = this;
       lunchSuggestions.fetch().done(function(){
         if (lunchSuggestions.length == 0)
           lunchSuggestions.add(new LunchSuggestion, { at: 0 });  
       });
-      
     },
 
     setTimer: function() {
       setInterval(function(){
-        $("#timer").html(new Date().toLocaleTimeString());
+        var arrCurrTime = new Date().toLocaleTimeString().split(":");
+        arrCurrTime[2] = _.last(arrCurrTime).replace(/\d+/,'');
+        $("#timer").html(arrCurrTime.join(":"));
       }, 1000);
-    },
-
-    onNew: function() {
-      if (this.$('.new-ls').length == 0) {
-        var view  = new LunchSuggestionView({ model: new LunchSuggestion });
-        this.$('#add-new').after(view.render().$el.hide());
-        this.$('.board').show('slow');
-      }
     },
 
     addOne: function(suggestion) {
       var view = new LunchSuggestionView({ model: suggestion });
       this.$el.append(view.render().el);
-    },
-
-    addAll: function() {
-      lunchSuggestions.each(this.addOne, this);
     },
 
   });
