@@ -1,18 +1,18 @@
 migration "create base schema" do
+  database.create_table :users do
+    primary_key :id
+    text        :fullname,   null: false
+    text        :email,      null: false
+    timestamp   :created_at, null: false
+    timestamp   :updated_at, null: false
+  end
+
   database.create_table :chefs do
     primary_key :id
     foreign_key :user_id, :users
     text        :name, null: false
     text        :facebook
     text        :email
-    timestamp   :created_at, null: false
-    timestamp   :updated_at, null: false
-  end
-
-  database.create_table :users do
-    primary_key :id
-    text        :fullname,   null: false
-    text        :email,      null: false
     timestamp   :created_at, null: false
     timestamp   :updated_at, null: false
   end
