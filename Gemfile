@@ -11,11 +11,11 @@ gem "sinatra-sequel"
 # template engine
 gem 'haml'
 
+# group :production do
+#   gem "pg"
+# end
+
 group :development, :test do
   gem "debugger"
   gem "sqlite3"
 end
-
-# group :production do
-#   gem "pg"
-# end
