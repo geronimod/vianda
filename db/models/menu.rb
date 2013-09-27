@@ -10,4 +10,8 @@ class Menu < Sequel::Model
     self[:updated_at].strftime "%d-%m %H:%M"
   end
 
+  def after_save
+    lunch_suggestion.touch
+  end
+
 end

@@ -9,4 +9,8 @@ class LunchSuggestion < Sequel::Model
   def before_destroy
     remove_all_menus
   end
+
+  def touch
+    update :update_at, Time.now
+  end
 end
