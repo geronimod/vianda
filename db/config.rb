@@ -1,4 +1,4 @@
-set :database, (development? ? 'sqlite://vianda.db' : 'postgres://localhost/vianda')
+set :database, (development? ? 'sqlite://vianda.db' : ENV['HEROKU_POSTGRESQL_PINK_URL'])
 
 require './db/migrations'
 require './db/callbacks'
