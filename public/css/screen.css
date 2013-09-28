@@ -1,11 +1,6 @@
-/*main { margin-top: 100px }*/
 #subheader { 
   margin-top: 100px;
   margin-bottom: 20px;
-}
-
-.progress-bar {
-  /*background-color: #DAD4D4;*/
 }
 
 .table tbody > tr > td {
@@ -49,8 +44,8 @@ header {
 .navbar-header p {
   font-size: 1.3em;
   margin-left: 40px;
-  color: transparent;
-  text-shadow: #fff 0 0 0.1em;
+  color: #fff;
+  text-shadow: #ccc 0 0 1em;
   letter-spacing: 2px;
 }
 
@@ -84,7 +79,7 @@ fieldset[disabled] .btn-primary:active,
 }
 
 .label-success {
-  background-color: #5E7B89;
+  background-color: #837C8F;
   letter-spacing: 1px;
 }
 
@@ -94,8 +89,8 @@ fieldset[disabled] .btn-primary:active,
 }
 
 .navbar-inverse {
-  border-bottom: 1px solid #999;
-  box-shadow: 0 1px 0 rgba(255,255,255,.1);
+  border-bottom: 1px solid #D1D1D1;
+  box-shadow: 0 5px 0 #A3A0A0;
 }
 
 .navbar-inverse .navbar-brand { 

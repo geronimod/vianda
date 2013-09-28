@@ -186,15 +186,15 @@ $(function(){
     initialize: function() {
       new Subheader();
       this.setTimer();
-      this.loading();
+      // this.loading();
 
       this.listenTo(lunchSuggestions, 'add', this.addOne);
 
       var self = this;
       lunchSuggestions.fetch().done(function(){
-        self.loadingDismiss();
         if (lunchSuggestions.length == 0)
           lunchSuggestions.add(new LunchSuggestion, { at: 0 });  
+        // self.loadingDismiss();
       });
     },
 
