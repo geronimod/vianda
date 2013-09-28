@@ -90,7 +90,8 @@ fieldset[disabled] .btn-primary:active,
 
 .navbar-inverse {
   border-bottom: 1px solid #D1D1D1;
-  box-shadow: 0 5px 0 #A3A0A0;
+  /*box-shadow: 0 5px 0 #A3A0A0;*/
+  box-shadow: 0 8px 6px -6px black;
 }
 
 .navbar-inverse .navbar-brand { 
@@ -125,8 +126,13 @@ fieldset[disabled] .btn-primary:active,
 .no-pr { padding-right: 0 }
 .control-label { font-weight: normal }
 
-.board, .modal-body, .modal-body h4 { 
+.board, .modal-body, .modal-body h4, footer { 
   font-family: 'PT Sans Narrow', sans-serif;
+}
+
+footer {
+  color: #999;
+  text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
 }
 
 .modal-body, .modal-body h4 {
