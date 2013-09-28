@@ -33,6 +33,7 @@ $(function(){
       'click .edit':           'onEdit',
       'click .confirm-delete': 'onConfirm',
       'click #add-menu':       'onAddMenu',
+      'click #del-menu':       'onRemoveMenu',
     },
 
     initialize: function() {
@@ -49,9 +50,16 @@ $(function(){
       }
     },
 
+    onRemoveMenu: function(e) {
+      e.preventDefault();
+      var $target = $(e.target);
+      $target.closest('.row.menu').fadeOut('slow', function(){ this.remove() });
+    },
+
     onAddMenu: function() {
       var index = this.$('.row.menu').length;
-      this.$('.row.menu:first-child').after(this.tmplMenu(_.extend(this.model.defaults, { index: index })));
+      this.$('.row.menu').last().after(this.tmplMenu(_.extend(this.model.defaults, { index: index })));
+      this.$('.row.menu').last().select('textarea').focus();
     },
 
     onCancel: function(e) {
@@ -83,22 +91,6 @@ $(function(){
       this.model.on('invalid', this.onInvalid, this);
       this.model.on('sync',  this.onSync, this);
       this.model.save(attrs);
-    },
-
-    onValid: function(a,b,c) {
-      alert('valid');
-    },
-
-    onInvalid: function(model, errors) {
-      this.$('button[type=submit]').button('reset');
-      debugger
-      var self = this;
-      _.each(errors, function(errorMessage, domName){
-        // debugger
-        self.$('[name="' + domName + '"]').css(errorMessage);
-
-      });
-      return false;
     },
 
     onSync: function() {
@@ -185,18 +177,36 @@ $(function(){
 
   var App = Backbone.View.extend({
     el: $("#main-container"),
-
+    
+    tmplModal: _.template($('#modal').html()),
+    tmplLoader: '<div class="loading">' +
+                  '<img src="/images/ajax-loader.gif"/> Loading Lunch Board ...' +
+                '</div>',
+    
     initialize: function() {
       new Subheader();
       this.setTimer();
+      this.loading();
 
       this.listenTo(lunchSuggestions, 'add', this.addOne);
 
       var self = this;
       lunchSuggestions.fetch().done(function(){
+        self.loadingDismiss();
         if (lunchSuggestions.length == 0)
           lunchSuggestions.add(new LunchSuggestion, { at: 0 });  
       });
+    },
+
+    loadingDismiss: function() {
+      this.$('#loading-modal').modal('hide').remove();
+    },
+
+    loading: function() {
+      var $modal = $(this.tmplModal({ body: this.tmplLoader }));
+      $modal.attr('id', 'loading-modal');
+      this.$el.html($modal);
+      $modal.modal();
     },
 
     setTimer: function() {

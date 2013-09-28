@@ -1,6 +1,7 @@
 /*main { margin-top: 100px }*/
 #subheader { 
   margin-top: 100px;
+  margin-bottom: 20px;
 }
 
 .progress-bar {
@@ -11,6 +12,22 @@
   border-top: none;
   padding: 0;
 }
+
+.paperclip {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+  float: right;
+  font-size: 22px;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .2;
+  filter: alpha(opacity=20);
+}
+
+.loading { text-align: center }
 
 header {
   background-image: url("/images/blackboard.jpg");

@@ -11,3 +11,8 @@
         <input required class="form-control" type="text" pattern="^[\d\. ]+$" placeholder="00.0" name="menus[<%= index %>].price" value="<%= menu.price %>"/>
       %span.input-sm.input-group-addon $
     
+    <% if (index > 0) { %>
+    %a#del-menu.btn.btn-xs.pull-right
+      %i.icon.icon-minus
+    <% } %>
+    

@@ -11,6 +11,6 @@ class LunchSuggestion < Sequel::Model
   end
 
   def touch
-    update :update_at, Time.now
+    update updated_at: Time.now
   end
 end
