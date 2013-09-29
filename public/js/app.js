@@ -59,7 +59,7 @@ $(function(){
     onAddMenu: function() {
       var index = this.$('.row.menu').length;
       this.$('.row.menu').last().after(this.tmplMenu(_.extend(this.model.defaults, { index: index })));
-      this.$('.row.menu').last().select('textarea').focus();
+      this.$('.row.menu textarea').last().focus();
     },
 
     onCancel: function(e) {
@@ -169,7 +169,7 @@ $(function(){
       if ($('.new-ls').length == 0) {
         var view  = new LunchSuggestionView({ model: new LunchSuggestion });
         $('#main-container').prepend(view.render().$el.hide());
-        view.$el.show('slow');
+        view.$el.show('slow', function(){ view.$('[name="chef.name"]').focus() });
       }
     },
 
