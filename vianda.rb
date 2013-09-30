@@ -36,7 +36,6 @@ assets {
   
   css :application, '/css/application.css', [
     '/css/bootstrap.min.css', 
-    '/css/font-awesome/css/font-awesome.min.css',
     '/css/screen.css'
   ]
 
