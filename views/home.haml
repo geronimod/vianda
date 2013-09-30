@@ -8,9 +8,8 @@
     %meta(name="author" content="Geronimo Diaz")
     
     %link(href="images/favicon.ico" rel="shortcut icon")
-    %link(href="css/bootstrap.min.css" rel="stylesheet" media="screen")
-    %link(href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet")
-    %link(href="css/screen.css" rel="stylesheet" media="screen")
+    
+    != css :application, :media => 'screen'
 
     %link(href='http://fonts.googleapis.com/css?family=Bad+Script' rel='stylesheet' type='text/css')
     %link(href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css')
@@ -39,14 +38,16 @@
 
       #main-container.row    
 
-    %script(src="//code.jquery.com/jquery.js")
-    %script(src="js/jquery.cookie.js")
-    %script(src="js/jquery.ex.js")
-    %script(src="js/underscore.min.js")
-    %script(src="js/backbone.min.js")
-    %script(src="js/bootstrap.min.js")
-    %script(src="js/form2js.js")
-    %script(src="js/app.js")
+    != js :application    
+    /
+      %script(src="js/jquery.min.js")
+      %script(src="js/jquery.cookie.js")
+      %script(src="js/jquery.ex.js")
+      %script(src="js/underscore.min.js")
+      %script(src="js/backbone.min.js")
+      %script(src="js/bootstrap.min.js")
+      %script(src="js/form2js.js")
+      %script(src="js/app.js")
 
     %script#form(type="text/template")
       %form
