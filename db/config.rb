@@ -1,3 +1,5 @@
+Sequel.default_timezone = :local
+
 set :database, (development? ? 'sqlite://vianda.db' : ENV['HEROKU_POSTGRESQL_PINK_URL'])
 
 require './db/migrations'

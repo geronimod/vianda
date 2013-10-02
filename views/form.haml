@@ -46,7 +46,7 @@
             %label.control-label Orders before:
           .col-md-6
             .input-group
-              <input required  pattern="^[\d\. ]+$" class="form-control" type="text" placeholder="11" name="lunch_suggestion.orders_before" value="<%= orders_before %>"/>
+              <input required  pattern="^(8|9|10|11|12|13)+$" maxlength=2 class="form-control" type="text" placeholder="11" name="lunch_suggestion.orders_before" value="<%= orders_before %>"/>
               %span.input-sm.input-group-addon am
 
   .panel-footer

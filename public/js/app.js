@@ -213,7 +213,7 @@ $(function(){
       setInterval(function(){
         var arrCurrTime = new Date().toLocaleTimeString().split(":");
         arrCurrTime[2] = _.last(arrCurrTime).replace(/\d+/,'');
-        $("#timer").html(arrCurrTime.join(":"));
+        $("#timer").html([arrCurrTime[0], arrCurrTime[1]].join(":") + " " + arrCurrTime[2]);
       }, 1000);
     },
 

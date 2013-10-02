@@ -8,7 +8,7 @@
   .col-md-4.form-group
     .input-group
       :plain
-        <input required class="form-control" type="text" pattern="^[\d\. ]+$" placeholder="00.0" name="menus[<%= index %>].price" value="<%= menu.price %>"/>
+        <input required class="form-control" type="text" maxlength=5 pattern="^[\d\. ]+$" placeholder="00.0" name="menus[<%= index %>].price" value="<%= menu.price %>"/>
       %span.input-sm.input-group-addon $
     
     <% if (index > 0) { %>
