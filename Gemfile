@@ -7,6 +7,7 @@ gem 'sinatra-contrib'
 # orm
 gem "sequel" 
 gem "sinatra-sequel"
+gem "tzinfo"
 
 # template engine
 gem 'haml'
