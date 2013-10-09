@@ -23,21 +23,8 @@ assets {
 
   # The second parameter defines where the compressed version will be served.
   # (Note: that parameter is optional, AssetPack will figure it out.)
-  js  :application, '/js/application.js', [
-    '/js/jquery.min.js',
-    '/js/jquery.cookie.js',
-    '/js/jquery.ex.js',
-    '/js/underscore.min.js',
-    '/js/backbone.min.js',
-    '/js/bootstrap.min.js',
-    '/js/form2js.js',
-    '/js/app.js'
-  ]
-  
-  css :application, '/css/application.css', [
-    '/css/bootstrap.min.css', 
-    '/css/screen.css'
-  ]
+  js  :application, ['/js/*.js']
+  css :application, ['/css/bootstrap.min.css', '/css/screen.css']
 
   js_compression  :jsmin    # :jsmin | :yui | :closure | :uglify
   css_compression :simple   # :simple | :sass | :yui | :sqwish
