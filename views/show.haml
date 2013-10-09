@@ -5,7 +5,7 @@
         <%= chef.name %>
 
       .col-md-3.contact
-        <a href="mailto:<%= chef.email %>"> @ </a>
+        <a href="https://mail.google.com/mail/?view=cm&su=[VIANDA]&to=<%= chef.email %>" target="_blank"> @ </a>
         <a href="https://www.facebook.com/<%= chef.facebook %>" target="_blank">
         %i.icon-facebook-sign
         </a>
@@ -46,7 +46,7 @@
         %i.icon-time 
         Order before  
         %strong <%= orders_before %>
-        am
+        <%= orders_before > 11 ? 'pm' : 'am' %>
       
       %li
         <% if (free_shipping) { %>
@@ -59,4 +59,4 @@
 
   .panel-footer 
     Suggested by
-    <a  href="mailto:<%= chef.user.email %>"><%= chef.user.fullname %></a>
+    <a href="http://mail.google.com/mail/?view=cm&su=[VIANDA]&to=<%= chef.user.email %>" target="_blank"><%= chef.user.fullname %></a>

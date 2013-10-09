@@ -34,6 +34,7 @@ $(function(){
       'click .confirm-delete': 'onConfirm',
       'click #add-menu':       'onAddMenu',
       'click #del-menu':       'onRemoveMenu',
+      'click .spinner':        'onSpin',
     },
 
     initialize: function() {
@@ -48,6 +49,11 @@ $(function(){
       } else {
         this.$el.addClass('new-ls');
       }
+    },
+
+    onSpin: function(e) {
+      var $target = $(e.target);
+      $target.next('.input-group-addon').html($target.val() > 11 ? 'pm' : 'am');
     },
 
     onRemoveMenu: function(e) {

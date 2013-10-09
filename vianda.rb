@@ -81,12 +81,24 @@ put '/lunch_suggestions/:id' do
   ls.chef.user.update(params[:user])
   ls.chef.update(params[:chef])
 
-  ls.remove_all_menus
-  params[:menus].each { |m| ls.add_menu(m) }
+  # update the existent menus
+  ls.menus.each do |menu|
+    if attrs = params[:menus].find { |m| m['id'] && m['id'].to_i == menu.id }
+      attrs.delete 'id'
+      menu.update(attrs)
+      params[:menus].delete attrs
+    else
+      menu.destroy
+    end
+  end
+  # add new ones
+  params[:menus].each { |m| m.delete('id'); ls.add_menu(m) }
 
   ls.update(params[:lunch_suggestion])
   
   status 202
+  
+  ls.reload
   ls.to_json
 end
 

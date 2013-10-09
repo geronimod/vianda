@@ -11,7 +11,10 @@ class Menu < Sequel::Model
   end
 
   def after_save
+    super
     lunch_suggestion.touch
   end
+
+
 
 end

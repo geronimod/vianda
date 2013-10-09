@@ -6,7 +6,7 @@ module Callbacks
   end
 
   def before_save
-    self.updated_at ||= Time.now
+    self.updated_at = Time.now
     super
   end
 

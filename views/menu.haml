@@ -1,4 +1,6 @@
 .row.menu
+  <input type="hidden" name="menus[<%= index %>].id" value="<%= menu.id %>"/>
+  
   .col-md-8.form-group
     :plain
       <textarea required class="form-control" placeholder="Menu" name="menus[<%= index %>].menu">

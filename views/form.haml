@@ -42,12 +42,13 @@
             
       .col-md-7
         .row
-          .col-md-6.no-pr.righted
+          .col-md-5.no-pr.righted
             %label.control-label Orders before:
-          .col-md-6
+          .col-md-7
             .input-group
-              <input required  pattern="^(8|9|10|11|12|13)+$" maxlength=2 class="form-control" type="text" placeholder="11" name="lunch_suggestion.orders_before" value="<%= orders_before %>"/>
-              %span.input-sm.input-group-addon am
+              <input required class="form-control spinner" type="number" min="9" max="13" step="1" placeholder="11" name="lunch_suggestion.orders_before" value="<%= orders_before %>"/>
+              %span.input-sm.input-group-addon
+                <%= orders_before > 11 ? 'pm' : 'am' %>
 
   .panel-footer
     .row
