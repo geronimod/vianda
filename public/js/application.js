@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>NoMethodError at &#x2F;assets&#x2F;application.js</title>
+  <title>NoMethodError at &#x2F;js&#x2F;application.js</title>
 
   <script type="text/javascript">
   //<!--
@@ -122,7 +122,7 @@
     <div id="header">
       <img src="/__sinatra__/500.png" alt="application error" height="161" width="313" />
       <div id="summary">
-        <h1><strong>NoMethodError</strong> at <strong>&#x2F;assets&#x2F;application.js
+        <h1><strong>NoMethodError</strong> at <strong>&#x2F;js&#x2F;application.js
           </strong></h1>
         <h2>undefined method `[]&#x27; for nil:NilClass</h2>
         <ul>
@@ -6868,7 +6868,7 @@
          
          <tr>
            <td>PATH_INFO</td>
-           <td class="code"><div>&#x2F;assets&#x2F;application.js</div></td>
+           <td class="code"><div>&#x2F;js&#x2F;application.js</div></td>
          </tr>
          
          <tr>
@@ -6903,17 +6903,17 @@
          
          <tr>
            <td>rack.errors</td>
-           <td class="code"><div>#&lt;Object:0x00000002135068&gt;</div></td>
+           <td class="code"><div>#&lt;Object:0x00000002554310&gt;</div></td>
          </tr>
          
          <tr>
            <td>rack.input</td>
-           <td class="code"><div>#&lt;StringIO:0x000000026875e8&gt;</div></td>
+           <td class="code"><div>#&lt;StringIO:0x0000000309c510&gt;</div></td>
          </tr>
          
          <tr>
            <td>rack.logger</td>
-           <td class="code"><div>#&lt;Logger:0x000000025ebc10 @progname=nil, @level=1, @default_formatter=#&lt;Logger::Formatter:0x000000025ebbe8 @datetime_format=nil&gt;, @formatter=nil, @logdev=#&lt;Logger::LogDevice:0x000000025ebaf8 @shift_size=nil, @shift_age=nil, @filename=nil, @dev=#&lt;StringIO:0x00000002687890&gt;, @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x000000025eba80 @mon_owner=nil, @mon_count=0, @mon_mutex=#&lt;Mutex:0x000000025eba08&gt;&gt;&gt;&gt;</div></td>
+           <td class="code"><div>#&lt;Logger:0x00000002c48040 @progname=nil, @level=1, @default_formatter=#&lt;Logger::Formatter:0x00000002c43f90 @datetime_format=nil&gt;, @formatter=nil, @logdev=#&lt;Logger::LogDevice:0x00000002c43f40 @shift_size=nil, @shift_age=nil, @filename=nil, @dev=#&lt;StringIO:0x0000000309c6f0&gt;, @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x00000002c43f18 @mon_owner=nil, @mon_count=0, @mon_mutex=#&lt;Mutex:0x00000002c43ea0&gt;&gt;&gt;&gt;</div></td>
          </tr>
          
          <tr>
@@ -6983,7 +6983,7 @@
          
          <tr>
            <td>sinatra.route</td>
-           <td class="code"><div>GET (?-mix:^\&#x2F;assets\&#x2F;application(?:.[a-f0-9]{32})?.js$)</div></td>
+           <td class="code"><div>GET (?-mix:^\&#x2F;js\&#x2F;application(?:.[a-f0-9]{32})?.js$)</div></td>
          </tr>
          
       </table>
