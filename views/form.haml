@@ -46,7 +46,7 @@
             %label.control-label Orders before:
           .col-md-7
             .input-group
-              <input required class="form-control spinner" type="number" min="9" max="13" step="1" placeholder="11" name="lunch_suggestion.orders_before" value="<%= orders_before || '11' %>"/>
+              <input required class="form-control spinner" type="number" min="9" max="13" step="1" placeholder="11" name="lunch_suggestion.orders_before" value="<%= orders_before %>"/>
               %span.input-sm.input-group-addon
                 <%= orders_before > 11 ? 'pm' : 'am' %>
 

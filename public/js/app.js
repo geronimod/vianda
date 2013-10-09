@@ -5,7 +5,7 @@ $(function(){
     defaults: {
       chef: { user: {} },
       menus: [{ menu: null, price: null }],
-      orders_before: undefined,
+      orders_before: 11,
       bread_included: true,
       free_shipping: true
     },
