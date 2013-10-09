@@ -226,6 +226,7 @@ $(function(){
     addOne: function(suggestion) {
       var view = new LunchSuggestionView({ model: suggestion });
       this.$el.append(view.render().el);
+      view.$('[name="chef.name"]').focus();
     },
 
   });
