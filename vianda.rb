@@ -66,7 +66,7 @@ post '/lunch_suggestions' do
   chef = user.add_chef params[:chef]
   ls   = chef.add_lunch_suggestion params[:lunch_suggestion]
   
-  params[:menus].each { |m| ls.add_menu m }
+  params[:menus].each { |m| m.delete('id'); ls.add_menu m }
   ls.to_json
 end
 

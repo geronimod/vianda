@@ -32,8 +32,8 @@ $(function(){
       'click .cancel':         'onCancel',
       'click .edit':           'onEdit',
       'click .confirm-delete': 'onConfirm',
-      'click #add-menu':       'onAddMenu',
-      'click #del-menu':       'onRemoveMenu',
+      'click .add-menu':       'onAddMenu',
+      'click .del-menu':       'onRemoveMenu',
       'click .spinner':        'onSpin',
     },
 
@@ -56,16 +56,31 @@ $(function(){
       $target.next('.input-group-addon').html($target.val() > 11 ? 'pm' : 'am');
     },
 
+    ensureOneMenu: function() {
+      if (this.$('.row.menu').length == 1) {
+        this.$('.row.menu .del-menu').hide();
+      } else {
+        this.$('.row.menu .del-menu').show();
+      }
+    },
+
     onRemoveMenu: function(e) {
       e.preventDefault();
-      var $target = $(e.target);
-      $target.closest('.row.menu').fadeOut('slow', function(){ this.remove() });
+      var self = this, $target = $(e.target);
+      $target.closest('.row.menu').fadeOut('slow', function(){ 
+        this.remove();
+        self.ensureOneMenu();
+      });      
     },
 
     onAddMenu: function() {
-      var index = this.$('.row.menu').length;
+      var indices = this.$('[data-index]').map(function(){
+        return parseInt($(this).attr('data-index'));
+      });
+      var index = _.isEmpty(indices) ? 0 : _.max(indices) + 1;
       this.$('.row.menu').last().after(this.tmplMenu(_.extend(this.model.defaults, { index: index })));
       this.$('.row.menu textarea').last().focus();
+      this.ensureOneMenu();
     },
 
     onCancel: function(e) {
@@ -158,6 +173,7 @@ $(function(){
         this.$el.html(this.template(opts.onEdit)).slideDown('slow');
         this.handleCheckboxes();
         this.initModal();
+        this.ensureOneMenu();
       }, this));
       
       return this;
