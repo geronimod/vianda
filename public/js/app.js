@@ -100,7 +100,7 @@ $(function(){
     afterDelete: function() {
       this.remove();
       if (lunchSuggestions.length == 0)
-        lunchSuggestions.add(new LunchSuggestion, { at: 0 });
+        $('.new-suggestion').trigger('click');
     },
 
     onSubmit: function(e) {
@@ -215,7 +215,8 @@ $(function(){
       var self = this;
       lunchSuggestions.fetch().done(function(){
         if (lunchSuggestions.length == 0)
-          lunchSuggestions.add(new LunchSuggestion, { at: 0 });  
+          $('.new-suggestion').trigger('click');
+          // lunchSuggestions.add(new LunchSuggestion, { at: 0 });  
         // self.loadingDismiss();
       });
     },
