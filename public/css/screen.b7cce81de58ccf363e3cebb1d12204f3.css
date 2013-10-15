@@ -203,13 +203,13 @@ ul.list-unstyled {
 *:focus {outline: none;}
 
 input:required:focus:valid, textarea:required:focus:valid {
-  background: none;
+  background: #fff;
   box-shadow: 0 0 5px rgb(118, 255, 118);
   border-color: rgb(133, 172, 133);
 }
 
 input:required:focus:invalid, textarea:required:focus:invalid {
-  background: none;
+  background: #fff;
   box-shadow: 0 0 5px rgb(245, 130, 130);
   border-color: rgb(206, 151, 151);
 }
