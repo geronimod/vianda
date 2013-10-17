@@ -91,7 +91,7 @@ fieldset[disabled] .btn-primary:active,
 }
 
 .label-yesterday {
-  background-color: #837C8F;
+  background-color: #C47272; /*#837C8F;*/
 }
 
 .btn-primary:hover {
