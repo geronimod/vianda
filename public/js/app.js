@@ -138,7 +138,13 @@ $(function(){
 
     template: function(onEdit) {
       var json = this.model.toJSON();
-      _.extend(json, { isOwner: this.isOwner(), isNew: this.model.isNew(), index: 0 });
+      debugger
+      _.extend(json, { 
+        isOwner: this.isOwner(), 
+        isNew: this.model.isNew(), 
+        index: 0,
+
+      });
       return (this.model.isNew() || onEdit) ? this.tmplForm(json) : this.tmplShow(json);
     },
 

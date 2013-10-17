@@ -28,8 +28,16 @@
           <%= menu.menu %> ... 
           %i.icon-usd 
           %span.price <%= menu.price %>
-          %span.label.label-success.pull-right
-            <%= menu.updated_at %> 
+          <% if (menu.today) { %>
+          %span.label.label-today.pull-right
+            <%= menu.updated_at %>
+          <% } else if (menu.yesterday) { %>
+          %span.label.label-yesterday.pull-right
+            <%= menu.updated_at %>
+          <% } else { %>
+          %span.label.label-older.pull-right
+            <%= menu.updated_at %>
+          <% } %>
       <% }); %>
 
     %ul.list-unstyled

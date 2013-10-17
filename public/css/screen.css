@@ -78,9 +78,20 @@ fieldset[disabled] .btn-primary:active,
   border-color: #C55A5A;
 }
 
-.label-success {
-  background-color: #837C8F;
+.label {
   letter-spacing: 1px;
+}
+
+.label-today {
+  background-color: #7CAC57;
+}
+
+.label-older {
+  background-color: #999;
+}
+
+.label-yesterday {
+  background-color: #837C8F;
 }
 
 .btn-primary:hover {

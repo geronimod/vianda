@@ -15,6 +15,16 @@ class Menu < Sequel::Model
     lunch_suggestion.touch
   end
 
+  def today
+    self[:updated_at] && self[:updated_at].to_date == Date.today
+  end
 
+  def yesterday
+    self[:updated_at] && self[:updated_at].to_date == Date.today-1
+  end
+
+  def values
+    @values.merge today: today, yesterday: yesterday
+  end
 
 end
