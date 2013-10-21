@@ -138,7 +138,7 @@ $(function(){
 
     template: function(onEdit) {
       var json = this.model.toJSON();
-      debugger
+
       _.extend(json, { 
         isOwner: this.isOwner(), 
         isNew: this.model.isNew(), 
