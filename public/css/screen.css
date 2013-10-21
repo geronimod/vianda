@@ -38,8 +38,7 @@ header {
 }
 
 .header {
-  float: left;
-  padding: 15px 15px 5px 15px;
+  padding: 15px 15px 5px 0px;
   font-size: 1.7em;
   line-height: 20px;
   color: #fff;
@@ -48,7 +47,7 @@ header {
 
 .navbar-header p {
   font-size: 1.3em;
-  margin-left: 40px;
+  padding-left: 40px;
   color: #fff;
   text-shadow: #ccc 0 0 1em;
   letter-spacing: 2px;

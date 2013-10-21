@@ -9,8 +9,8 @@
     
     %link(href="images/favicon.ico" rel="shortcut icon")
     
-    
     %link(href="css/bootstrap.min.css" rel="stylesheet" media="screen")
+    %link(href="css/bootstrap-responsive.min.css" rel="stylesheet")
     %link(href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet")
     != css :application, :media => 'screen'
   
@@ -28,7 +28,8 @@
             .navbar-header
               .header VIANDA
               %p Lunch Board
-          .col-md-6
+          
+          .col-md-6.hidden-phone
             .time.pull-right
               %i.icon-time
                 %span#timer 12:00 AM
@@ -40,12 +41,8 @@
             %i.icon-plus
         
         .col-md-11
-          .alert.alert-info
-            %button(type="button" class="close" data-dismiss="alert") &times;
-            %strong Tip: 
-            Puedes actualizar los menus actuales de tu chef mediante en el icono de edici&oacute;n
-            %i.icon-edit
-            sin necesidad de crear nuevamente el chef.
+          = haml :tip
+
       #main-container.row    
 
     != js :application
