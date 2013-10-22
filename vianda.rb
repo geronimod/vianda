@@ -44,8 +44,12 @@ assets {
   css_compression :simple   # :simple | :sass | :yui | :sqwish
 }
 
+HEROKU_HOST = 'vianda.herokuapp.com' 
+VIANDA_HOST = 'vianda.lunchboard.com.ar' 
+
 before do
   logger.info "HOST: #{request.host}"
+  redirect(VIANDA_HOST, 301) if request.host == HEROKU_HOST
 end
 
 get '/' do
