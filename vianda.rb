@@ -47,12 +47,12 @@ assets {
 HEROKU_HOST = 'vianda.herokuapp.com' 
 VIANDA_HOST = 'vianda.lunchboard.com.ar' 
 
-before do
-  logger.info "HOST: #{request.host}"
-  # redirect('http://' + VIANDA_HOST, 301) if request.host == HEROKU_HOST
-end
+# before do
+#   logger.info "HOST: #{request.host}"
+# end
 
 get '/' do
+  redirect('http://' + VIANDA_HOST, 301) if request.host == HEROKU_HOST
   haml :home
 end
 
