@@ -6,6 +6,7 @@ require './db/config'
 require 'json'
 require 'haml'
 
+
 use Rack::Logger
 
 helpers do
@@ -42,6 +43,10 @@ assets {
   js_compression  :jsmin    # :jsmin | :yui | :closure | :uglify
   css_compression :simple   # :simple | :sass | :yui | :sqwish
 }
+
+before do
+  logger.info "HOST: #{request.host}"
+end
 
 get '/' do
   haml :home
