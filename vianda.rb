@@ -49,7 +49,7 @@ VIANDA_HOST = 'vianda.lunchboard.com.ar'
 
 before do
   logger.info "HOST: #{request.host}"
-  redirect('http://' + VIANDA_HOST, 301) if request.host == HEROKU_HOST
+  # redirect('http://' + VIANDA_HOST, 301) if request.host == HEROKU_HOST
 end
 
 get '/' do
