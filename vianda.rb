@@ -34,9 +34,9 @@ assets {
     '/js/form2js.js',
     '/js/app.js'
   ]
-  
+
   css :application, '/css/application.css', [
-    '/css/bootstrap.min.css', 
+    '/css/bootstrap.min.css',
     '/css/screen.css'
   ]
 
@@ -44,15 +44,13 @@ assets {
   css_compression :simple   # :simple | :sass | :yui | :sqwish
 }
 
-HEROKU_HOST = 'vianda.herokuapp.com' 
-VIANDA_HOST = 'vianda.lunchboard.com.ar' 
+HEROKU_HOST = 'vianda.herokuapp.com'
 
 # before do
 #   logger.info "HOST: #{request.host}"
 # end
 
 get '/' do
-  redirect('http://' + VIANDA_HOST, 301) if request.host == HEROKU_HOST
   haml :home
 end
 
@@ -70,11 +68,11 @@ post '/lunch_suggestions' do
   request.body.rewind
   form_params = JSON.parse(request.body.read)
   params.merge! form_params
-  
+
   user = User.create params[:user]
   chef = user.add_chef params[:chef]
   ls   = chef.add_lunch_suggestion params[:lunch_suggestion]
-  
+
   params[:menus].each { |m| m.delete('id'); ls.add_menu m }
   ls.to_json
 end
@@ -83,10 +81,10 @@ put '/lunch_suggestions/:id' do
   request.body.rewind
   form_params = JSON.parse(request.body.read)
   params.merge! form_params
-  
+
   ls = LunchSuggestion.find(id: params[:id])
   return status 404 unless ls
-  
+
   ls.chef.user.update(params[:user])
   ls.chef.update(params[:chef])
 
@@ -104,9 +102,9 @@ put '/lunch_suggestions/:id' do
   params[:menus].each { |m| m.delete('id'); ls.add_menu(m) }
 
   ls.update(params[:lunch_suggestion])
-  
+
   status 202
-  
+
   ls.reload
   ls.to_json
 end
