@@ -1,11 +1,13 @@
 source 'https://rubygems.org'
 
+ruby '2.1.2'
+
 # fw
 gem 'sinatra'
 gem 'sinatra-contrib'
 
 # orm
-gem "sequel" 
+gem "sequel"
 gem "sinatra-sequel"
 gem "tzinfo"
 
