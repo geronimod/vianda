@@ -2,22 +2,24 @@
 %html(lang="en")
   %head
     %title Vianda Lunch Board
-    
+
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     %meta(name="description" content="Vianda Lunch Board: what do you suggest to eat for lunch ?")
     %meta(name="author" content="Geronimo Diaz")
-    
+
     %link(href="images/favicon.ico" rel="shortcut icon")
-    
+
     %link(href="css/bootstrap.min.css" rel="stylesheet" media="screen")
     %link(href="css/bootstrap-responsive.min.css" rel="stylesheet")
     %link(href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet")
-    != css :application, :media => 'screen'
-  
-    %link(href='http://fonts.googleapis.com/css?family=Bad+Script' rel='stylesheet' type='text/css')
-    %link(href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css')
-    %link(href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css')
-    %link(href='http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two' rel='stylesheet' type='text/css')
+
+    %link(href="css/application.ab4e64e17f222cfdc163a043fde7e5fd.css" rel="stylesheet")
+    -# != css :application, :media => 'screen'
+
+    %link(href='https://fonts.googleapis.com/css?family=Bad+Script' rel='stylesheet' type='text/css')
+    %link(href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css')
+    %link(href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css')
+    %link(href='https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two' rel='stylesheet' type='text/css')
 
 
   %body
@@ -28,7 +30,7 @@
             .navbar-header
               .header VIANDA
               %p Lunch Board
-          
+
           .col-md-6.hidden-phone
             .time.pull-right
               %i.icon-time
@@ -39,24 +41,24 @@
         .col-md-1
           %a(href="#" class="btn btn-primary btn-sm new-suggestion")
             %i.icon-plus
-        
+
         .col-md-11
-          = haml :tip
+          =# haml :tip
 
-      #main-container.row    
+      #main-container.row
 
-    != js :application
-    
+    %script(src="/js/application.1ba64137309a6d8d74b86a537f05f36a.js")
+    -# != js :application
+
     %script#form(type="text/template")
       %form
-        = haml :form
+        = haml :form, escape_html: false, format: :html5
     %script#menu(type="text/template")
-      = haml :menu
+      = haml :menu, escape_attrs: false, escape_html: false
     %script#show(type="text/template")
-      = haml :show
+      = haml :show, escape_attrs: false, escape_html: false
     %script#modal(type="text/template")
-      = haml :modal  
+      = haml :modal, escape_attrs: false, escape_html: false
     %script#alert(type="text/template")
-      = haml :alert
-    
-  
+      = haml :alert, escape_attrs: false, escape_html: false
+

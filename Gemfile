@@ -1,10 +1,15 @@
 source 'https://rubygems.org'
 
-ruby '2.1.2'
+ruby '3.1.1'
+
+gem "rack", "~> 3"
+gem "rackup"
+gem "pg"
+gem "puma"
 
 # fw
 gem 'sinatra'
-gem 'sinatra-contrib'
+# gem 'sinatra-contrib'
 
 # orm
 gem "sequel"
@@ -15,13 +20,4 @@ gem "tzinfo"
 gem 'haml'
 
 # assets
-gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
-
-group :production do
-  gem "pg"
-end
-
-group :development, :test do
-  gem "debugger"
-  gem "sqlite3"
-end
+# gem 'sinatra-assetpack', :require => 'sinatra/assetpack'

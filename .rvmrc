@@ -1,1 +1,1 @@
-rvm use 2.0.0@vianda --create
+rvm use 3.1.1@vianda --create

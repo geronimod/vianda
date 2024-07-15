@@ -1,3 +1,6 @@
+require 'sinatra'
+require 'sinatra/sequel'
+
 migration "create base schema" do
   database.create_table :users do
     primary_key :id

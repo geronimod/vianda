@@ -1,7 +1,7 @@
 require 'sinatra'
-require "sinatra/reloader" if development?
+# require "sinatra/reloader" if development?
 require 'sinatra/sequel'
-require 'sinatra/assetpack'
+# require 'sinatra/assetpack'
 require './db/config'
 require 'json'
 require 'haml'
@@ -15,36 +15,36 @@ helpers do
   end
 end
 
-register Sinatra::AssetPack
+# register Sinatra::AssetPack
 
-assets {
-  serve '/js',     from: 'public/js'        # Default
-  serve '/css',    from: 'public/css'       # Default
-  serve '/images', from: 'public/images'    # Default
+# assets {
+#   serve '/js',     from: 'public/js'        # Default
+#   serve '/css',    from: 'public/css'       # Default
+#   serve '/images', from: 'public/images'    # Default
 
-  # The second parameter defines where the compressed version will be served.
-  # (Note: that parameter is optional, AssetPack will figure it out.)
-  js  :application, '/js/application.js', [
-    '/js/jquery.min.js',
-    '/js/jquery.cookie.js',
-    '/js/jquery.ex.js',
-    '/js/underscore.min.js',
-    '/js/backbone.min.js',
-    '/js/bootstrap.min.js',
-    '/js/form2js.js',
-    '/js/app.js'
-  ]
+#   # The second parameter defines where the compressed version will be served.
+#   # (Note: that parameter is optional, AssetPack will figure it out.)
+#   js  :application, '/js/application.js', [
+#     '/js/jquery.min.js',
+#     '/js/jquery.cookie.js',
+#     '/js/jquery.ex.js',
+#     '/js/underscore.min.js',
+#     '/js/bootstrap.min.js',
+#     '/js/backbone.min.js',
+#     '/js/form2js.js',
+#     '/js/app.js'
+#   ]
 
-  css :application, '/css/application.css', [
-    '/css/bootstrap.min.css',
-    '/css/screen.css'
-  ]
+#   css :application, '/css/application.css', [
+#     '/css/bootstrap.min.css',
+#     '/css/screen.css'
+#   ]
 
-  js_compression  :jsmin    # :jsmin | :yui | :closure | :uglify
-  css_compression :simple   # :simple | :sass | :yui | :sqwish
-}
+#   js_compression  :jsmin    # :jsmin | :yui | :closure | :uglify
+#   css_compression :simple   # :simple | :sass | :yui | :sqwish
+# }
 
-HEROKU_HOST = 'vianda.herokuapp.com'
+# HEROKU_HOST = 'vianda.herokuapp.com'
 
 # before do
 #   logger.info "HOST: #{request.host}"
@@ -65,7 +65,6 @@ get '/lunch_suggestions/:id' do
 end
 
 post '/lunch_suggestions' do
-  request.body.rewind
   form_params = JSON.parse(request.body.read)
   params.merge! form_params
 
@@ -78,7 +77,6 @@ post '/lunch_suggestions' do
 end
 
 put '/lunch_suggestions/:id' do
-  request.body.rewind
   form_params = JSON.parse(request.body.read)
   params.merge! form_params
 

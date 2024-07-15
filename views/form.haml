@@ -4,13 +4,13 @@
       .col-md-10
         .form-group
           <input required class="form-control" type="text" placeholder="Chef Name" name="chef.name" value="<%= chef.name %>" />
-              
+
         .form-group
           <input class="form-control" type="email" placeholder="Chef Email" name="chef.email" value="<%= chef.email %>" />
-          
+
         .form-group
           <input class="form-control" type="text" placeholder="Chef Facebook" name="chef.facebook" value="<%= chef.facebook %>" />
-              
+
       .col-md-2
         .form-group
           %button(type="button" class="close cancel" aria-hidden="true" tabindex="-1") &times;
@@ -30,16 +30,10 @@
       .col-md-5
         .checkbox.no-mt
           %label.control-label
-          <input type="hidden" name="lunch_suggestion.bread_included" value="false"/>
-          <input type="checkbox" name="lunch_suggestion.bread_included"/>
-          Bread included
-
-        .checkbox
-          %label.control-label
           <input type="hidden" name="lunch_suggestion.free_shipping" value="false"/>
           <input type="checkbox" name="lunch_suggestion.free_shipping"/>
           Free shipping
-            
+
       .col-md-7
         .row
           .col-md-5.no-pr.righted
@@ -54,7 +48,7 @@
     .row
       .col-md-12
         %label.control-label Suggested by
- 
+
     .row
       .col-md-12.form-group
         .input-group-sm
@@ -75,4 +69,3 @@
         UPDATE
         <% } %>
         </button>
-          

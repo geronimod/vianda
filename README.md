@@ -1,4 +1,10 @@
 vianda
 ======
 
-share daily lunch suggestion
+Share daily lunch suggestion.
+
+DB Setup
+--------
+- Install PostegreSQL
+- Run `createdb vianda_(development/production)`
+- Run `ruby ./db/migrations.rb`

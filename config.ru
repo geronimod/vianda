@@ -8,9 +8,10 @@ $LOAD_PATH.unshift root_dir
 
 require 'vianda'
 
-
 set :root, root_dir
 set :app_file, File.join(root_dir, 'vianda.rb')
+set :haml, { escape_html: false }
+set :server, :puma
 
 disable :run
 

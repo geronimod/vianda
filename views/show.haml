@@ -20,13 +20,13 @@
         %icon.icon-paperclip.paperclip
         <% } %>
 
-  .panel-body 
+  .panel-body
     %table.table
       <% _.each(menus, function(menu){ %>
       %tr
         %td.lunch
-          <%= menu.menu %> ... 
-          %i.icon-usd 
+          <%= menu.menu %> ...
+          %i.icon-usd
           %span.price <%= menu.price %>
           <% if (menu.today) { %>
           %span.label.label-today.pull-right
@@ -41,30 +41,21 @@
       <% }); %>
 
     %ul.list-unstyled
-      %li 
-        <% if (bread_included) { %>
-        %i.icon-gift
-        Bread included
-        <% } else { %>
-        %i.icon-thumbs-down
-        Bread not included
-        <% } %>
-      
       %li
-        %i.icon-time 
-        Order before  
+        %i.icon-time
+        Order before
         %strong <%= orders_before %>
         <%= orders_before > 11 ? 'pm' : 'am' %>
-      
+
       %li
         <% if (free_shipping) { %>
         %i.icon-truck
         Free shipping
         <% } else { %>
         %i.icon-thumbs-down-alt
-        Shipping not included        
+        Shipping not included
         <% } %>
 
-  .panel-footer 
+  .panel-footer
     Suggested by
     <a href="http://mail.google.com/mail/?view=cm&su=[VIANDA]&to=<%= chef.user.email %>" target="_blank"><%= chef.user.fullname %></a>
