@@ -7,7 +7,7 @@ class Menu < Sequel::Model
 
   def updated_at
     self[:updated_at] ||= Time.now
-    self[:updated_at].strftime "%y.%d.%m %H:%M"
+    self[:updated_at].strftime "%y.%m.%d %H:%M"
   end
 
   def after_save
