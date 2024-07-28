@@ -20,6 +20,9 @@ GEM
       rack (>= 3.0.0, < 4)
     rack-session (2.0.0)
       rack (>= 3.0.0)
+    rackup (2.1.0)
+      rack (>= 3)
+      webrick (~> 1.8)
     ruby2_keywords (0.0.5)
     sequel (5.81.0)
       bigdecimal
@@ -37,6 +40,7 @@ GEM
     tilt (2.3.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    webrick (1.8.1)
 
 PLATFORMS
   x86_64-darwin-20
@@ -46,6 +50,7 @@ DEPENDENCIES
   pg
   puma
   rack (~> 3)
+  rackup
   sequel
   sinatra
   sinatra-sequel
